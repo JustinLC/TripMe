@@ -10,8 +10,9 @@ end
 get '/signup' do 
 end 
 
-get '/dashboard' do 
-end 
+get '/dashboard' do
+	erb :'/trips/dashboard'
+end
 
 get '/alltrips' do 
 end 
