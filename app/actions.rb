@@ -3,12 +3,19 @@ get '/' do
 	@user = User.new(
 		name: params[:name], 
 		email: params[:email],
+		password: params[:password]
 	)
+	@user.save
+
   erb :splash
 end
 
 get '/signup' do 
 end 
+
+post '/signup' do
+  "Hello World"
+end
 
 get '/dashboard' do 
 end 
