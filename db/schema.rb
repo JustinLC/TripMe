@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323210234) do
+
+ActiveRecord::Schema.define(version: 20160323233538) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "comment"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
+  create_table "trips", force: :cascade do |t|
+    t.string   "trip_name"
+    t.string   "destination"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
