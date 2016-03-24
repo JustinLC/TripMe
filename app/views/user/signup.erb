@@ -1,0 +1,23 @@
+<% if @user && @user.errors.any? %> 
+	<div>
+		<h1> Please fix your errors </h1>
+		<ul> 
+				<%@user.errors.full_messages.each do  |user| %>
+				<li><%= user %></li>
+			<%end%> 
+		</ul>
+	</div>
+<% end %> 
+
+<form method="post" action="/signup">
+	<label>Name: <input type="text" name="name"></label>
+		</br>
+		</br>
+	<label>Email: <input type="text" name="email"></label>
+		</br>
+		</br>
+	<label>Password: <input type="password" name="password"></label>
+		</br>
+		</br> 
+	<label><input type="submit" value="Create Account"></label>
+</form>

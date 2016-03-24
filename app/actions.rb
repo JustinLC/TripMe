@@ -1,23 +1,57 @@
 # Homepage (Root path)
+helpers do 
+	def current_user 
+		if session[:user_id]
+			User.find(session[:user_id])
+		else 
+			nil 
+		end 
+	end 
+end 
+
 get '/' do
+  erb :splash
+end
+
+post '/' do 
+		@user=User.find_by(email: params[:email])
+	if @user && @user.password == params[:password]
+		session[:user_id] = @user.id 
+		redirect '/dashboard'
+	else 
+		erb :'splash'
+	end 
+end
+
+get '/signup' do 
 	@user = User.new(
 		name: params[:name], 
 		email: params[:email],
 		password: params[:password]
 	)
 	@user.save
-
-  erb :splash
-end
-
-get '/signup' do 
+	erb :'user/signup'
 end 
 
 post '/signup' do
-  "Hello World"
+	@user = User.new(
+	name: params[:name], 
+	email: params[:email],
+	password: params[:password]
+	)
+	if @user.save
+		redirect '/dashboard' 
+	else 
+		erb :'/signup'
+	end 
 end
 
 get '/dashboard' do 
+	erb :'trips/dashboard'
+end 
+
+post '/dashboard' do 
+	erb :'trips/dashboard'
 end 
 
 get '/alltrips' do 
