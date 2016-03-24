@@ -31,10 +31,8 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <% if session[:user_id] %>
-            <li><a href="/user/signout">Logout</a></li>
-          <% else %>
-            <li><a href="/user/signin">Login</a></li>
+          <% if current_user%>
+            <li><a href="/">Logout</a></li>
           <% end %>
         </ul>
       </div>

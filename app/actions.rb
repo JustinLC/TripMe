@@ -42,7 +42,7 @@ post '/signup' do
 	if @user.save
 		redirect '/dashboard' 
 	else 
-		erb :'/signup'
+		erb :'/user/signup'
 	end 
 end
 
@@ -50,7 +50,7 @@ get '/dashboard' do
 	erb :'trips/dashboard'
 end 
 
-get '/dashboard' do
+post '/dashboard' do 
 	erb :'/trips/dashboard'
 end
 

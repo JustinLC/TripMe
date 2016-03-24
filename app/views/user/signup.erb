@@ -1,7 +1,7 @@
 
 <h1>Create a User Account</h1>
 
-<% if @user.errors.any? %>
+<% if @user && @user.errors.any? %>
   <div>
     <h3><strong>There are some issues with the user creation:</strong></h3><hr/>
     <ul>
@@ -12,7 +12,10 @@
   </div>
 <% end %>
 
-<form method="post" action="/user/signup">
+<form method="post" action="/signup">
+	<div>
+		<label>Name: <input name="name" class="form-control" type="text" value="<%= @user.name %>"/></label>
+	</div>
 	<div>
 		<label>Email: <input name="email" class="form-control" type="text" value="<%= @user.email %>"/></label>
 	</div>
