@@ -58,6 +58,7 @@ post '/signup' do
 	email: params[:email],
 	password: params[:password]
 	)
+	
 	if @user.save
 		session[:user_id] = @user.id 
 		redirect '/dashboard' 
@@ -93,12 +94,12 @@ end
 
 get '/mytrips' do 
 	@user = current_user
-	erb :'trips/mytrips'
+	erb :'/trips/mytrips'
 end 
 
 get '/mytrips/:id' do 
 	@trip = Trip.find(params[:id])
-	erb :'trips/mytrips'
+	erb :'trips/eachtrip'
 end 
 
 get '/alltrips' do 

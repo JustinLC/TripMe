@@ -1,0 +1,18 @@
+
+<p><%= @song.song_name %></p>
+
+<hr/>
+
+<a href="/songs" type="button"> Back to All Songs </a> 
+
+<% @comments.each do |comment| %>
+	<ul style=list-style: none>
+		<td><%=comment.comment %></td>
+	</ul> 
+<% end %> 
+
+
+<form method="post" action="<%="/songs/" + @song.id.to_s + "/comments/new" %>">
+	<textarea class="form-control" name="comment" rows="3" cols="5"></textarea>
+	<button class="btn btn-default" type="submit">Post Comment</button>
+</form>
