@@ -7,3 +7,18 @@
 	<br>
 <%end %>
 
+<div class="row">
+	<h3><a href="/create_trip/<%=trip.id %>"></a></h3>
+			<li>Name:<%=trip.tripname %></li>
+			</br>
+			<form action='<%= "/alltrips/#{trip.id}/vote"%>' method="post">
+		 		<div>
+	    	<button type="submit" class="btn">Vote</button>
+ 			 	</div>
+			</form>
+			<p>
+			  Votes: <%= trip.votes %>
+			</p>
+			</br>
+	</div>
+<%end%> 
