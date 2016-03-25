@@ -59,6 +59,7 @@ post '/signup' do
 	password: params[:password]
 	)
 	if @user.save
+		session[:user_id] = @user.id 
 		redirect '/dashboard' 
 	else 
 		erb :'/user/signup'
