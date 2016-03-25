@@ -1,4 +1,4 @@
-class TripColumns < ActiveRecord::Migration
+class TripColumn < ActiveRecord::Migration
   def change
   	create_table :trips do |t|
   		t.string :tripname
