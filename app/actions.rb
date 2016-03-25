@@ -43,12 +43,7 @@ get '/logout' do
 end 
 
 get '/signup' do 
-	@user = User.new(
-		name: params[:name], 
-		email: params[:email],
-		password: params[:password]
-	)
-	@user.save
+	@user = User.new 
 	erb :'/user/signup'
 end 
 
@@ -68,7 +63,11 @@ post '/signup' do
 end
 
 get '/dashboard' do 
-	erb :'trips/dashboard'
+	if current_user
+	erb :'trips/dashboard' 
+	else 
+		redirect '/'
+	end 
 end 
 
 get '/alltrips' do 
@@ -89,7 +88,7 @@ post '/create_trip/user' do
   startdate: params[:startdate],
   enddate: params[:enddate]
 	)
-	redirect '/create_trip/user'
+	redirect '/mytrips'
 end 
 
 get '/mytrips' do 
@@ -98,12 +97,15 @@ get '/mytrips' do
 end 
 
 get '/mytrips/:id' do 
-	@trip = Trip.find(params[:id])
+	@user = current_user
+	@trip = @user.trips.find(params[:id])
 	erb :'trips/eachtrip'
 end 
 
-get '/alltrips' do 
-	erb :'/trips/alltrips'
+get '/alltrips/:id' do 
+	@user = current_user
+	@trip = @user.trips.find(params[:id])
+	erb :'/trips/singletrip'
 end 
 
 get 'alltrips/id/:id' do 
