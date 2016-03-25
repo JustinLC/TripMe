@@ -23,32 +23,13 @@ post '/login' do
 	end 
 end
 
-get '/login' do 
-  erb :'splash'
-end
-
-post '/login' do 
-  @user=User.find_by(email: params[:email])
-  if @user && @user.password == params[:password]
-    session[:user_id] = @user.id 
-    redirect '/dashboard'
-  else 
-    erb :'splash'
-  end 
-end
-
 get '/logout' do 
 	session[:user_id] = nil
 	redirect '/'
 end 
 
 get '/signup' do 
-	@user = User.new(
-		name: params[:name], 
-		email: params[:email],
-		password: params[:password]
-	)
-	@user.save
+	@user = User.new
 	erb :'/user/signup'
 end 
 
@@ -109,6 +90,12 @@ end
 get 'alltrips/id/:id' do 
 	#specific trip 
 end 
+
+post '/alltrips/:id/vote' do
+  @trip = Trip.find params[:id]
+  @trip.up_vote
+  redirect "/alltrips"
+end
 
 # <form method="post" action="<%="/songs/" + @song.id.to_s + "/comments/new" %>">
 # 	<textarea class="form-control" name="comment" rows="3" cols="5"></textarea>
