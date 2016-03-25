@@ -58,6 +58,7 @@ post '/signup' do
 	email: params[:email],
 	password: params[:password]
 	)
+	session[:user_id] = @user.id 
 	if @user.save
 		redirect '/dashboard' 
 	else 
@@ -92,7 +93,7 @@ end
 
 get '/mytrips' do 
 	@user = current_user
-	erb :'trips/mytrips'
+	erb :'/trips/mytrips'
 end 
 
 get '/mytrips/:id' do 
