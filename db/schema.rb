@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20160323233538) do
+ActiveRecord::Schema.define(version: 20160324221935) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "comment"
@@ -21,15 +20,20 @@ ActiveRecord::Schema.define(version: 20160323233538) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "trips", force: :cascade do |t|
-    t.string   "trip_name"
-    t.string   "destination"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string "tripname"
+    t.string "destination"
+    t.date   "enddate"
+    t.date   "startdate"
   end
+
+  create_table "trips_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "trip_id"
+  end
+
+  add_index "trips_users", ["trip_id"], name: "index_trips_users_on_trip_id"
+  add_index "trips_users", ["user_id"], name: "index_trips_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string "name"

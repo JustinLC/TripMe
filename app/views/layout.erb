@@ -29,14 +29,12 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> TripMe</a>
+        <a class="navbar-brand" href="/dashboard"><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> TripMe</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <% if current_user%>
-            <li><a href="/user/signout"><a class="navbar-brand" href="/"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>
-          <% else %>
-            <li><a href="/user/signin"><a class="navbar-brand" href="/"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Login</a></li>
+         <% if current_user %>
+          <li><a href="/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>
           <% end %>
         </ul>
       </div>
@@ -47,3 +45,5 @@
   </div>
 </body>
 </html>
+
+ 
