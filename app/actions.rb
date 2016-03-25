@@ -23,6 +23,25 @@ post '/' do
 	end 
 end
 
+get '/login' do 
+    erb :'splash'
+end
+
+post '/login' do 
+  @user=User.find_by(email: params[:email])
+  if @user && @user.password == params[:password]
+      session[:user_id] = @user.id 
+      redirect '/dashboard'
+  else 
+      erb :'splash'
+  end 
+end
+
+post '/logout' do 
+  session[:user_id] = nil
+  redirect '/'
+end
+
 get '/signup' do 
 	@user = User.new(
 		name: params[:name], 
@@ -30,7 +49,7 @@ get '/signup' do
 		password: params[:password]
 	)
 	@user.save
-	erb :'user/signup'
+	erb :'/user/signup'
 end 
 
 post '/signup' do
@@ -48,10 +67,6 @@ end
 
 get '/dashboard' do 
 	erb :'trips/dashboard'
-end 
-
-post '/dashboard' do 
-	erb :'/trips/dashboard'
 end
 
 get '/alltrips' do 
