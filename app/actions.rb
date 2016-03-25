@@ -1,11 +1,7 @@
 # Homepage (Root path)
 helpers do 
 	def current_user
-		if session[:user_id]
-			User.find(session[:user_id])
-		else 
-			nil 
-		end 
+		User.find(session[:user_id]) if session[:user_id]  
 	end 
 end 
 
@@ -27,7 +23,7 @@ post '/login' do
 	end 
 end
 
-post '/logout' do 
+get '/logout' do 
 	session[:user_id] = nil
 	redirect '/'
 end 
@@ -59,6 +55,8 @@ get '/dashboard' do
 	erb :'trips/dashboard'
 end 
 
+
+
 get '/alltrips' do 
 	@trips = Trip.all 
 	erb :'/trips/alltrips'
@@ -89,12 +87,6 @@ get '/mytrips/:id' do
 	@trip = Trip.find(params[:id])
 	erb :'trips/mytrips'
 end 
-
-
-
-
-
-
 
 get '/alltrips' do 
 	erb :'/trips/alltrips'
