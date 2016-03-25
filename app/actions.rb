@@ -1,6 +1,6 @@
 # Homepage (Root path)
 helpers do 
-	def current_user 
+	def current_user
 		if session[:user_id]
 			User.find(session[:user_id])
 		else 
@@ -13,8 +13,12 @@ get '/' do
   erb :splash
 end
 
-post '/' do 
-		@user=User.find_by(email: params[:email])
+get '/login' do 
+	erb :'splash'
+end 
+
+post '/login' do 
+	@user=User.find_by(email: params[:email])
 	if @user && @user.password == params[:password]
 		session[:user_id] = @user.id 
 		redirect '/dashboard'
@@ -23,6 +27,11 @@ post '/' do
 	end 
 end
 
+post '/logout' do 
+	session[:user_id] = nil
+	redirect '/'
+end 
+
 get '/signup' do 
 	@user = User.new(
 		name: params[:name], 
@@ -30,7 +39,7 @@ get '/signup' do
 		password: params[:password]
 	)
 	@user.save
-	erb :'user/signup'
+	erb :'/user/signup'
 end 
 
 post '/signup' do
@@ -50,27 +59,67 @@ get '/dashboard' do
 	erb :'trips/dashboard'
 end 
 
-post '/dashboard' do 
-	erb :'/trips/dashboard'
-end
+get '/alltrips' do 
+	@trips = Trip.all 
+	erb :'/trips/alltrips'
+end 
+
+get '/create_trip/user' do 
+	@trip=Trip.all
+	erb :'/trips/createtrip'
+end 
+
+post '/create_trip/user' do 
+	@user= current_user 
+	@trip= @user.trips.create(
+	tripname: params[:tripname],
+  destination: params[:destination],
+  startdate: params[:startdate],
+  enddate: params[:enddate]
+	)
+	redirect '/create_trip/user'
+end 
+
+get '/mytrips' do 
+	@user = current_user
+	erb :'trips/mytrips'
+end 
+
+get '/mytrips/:id' do 
+	@trip = Trip.find(params[:id])
+	erb :'trips/mytrips'
+end 
+
+
+
+
+
+
 
 get '/alltrips' do 
+	erb :'/trips/alltrips'
 end 
 
 get 'alltrips/id/:id' do 
 	#specific trip 
 end 
 
-get '/create_trip/user/:name' do 
-end 
-
-get '/mytrips' do 
-end 
 
 
 
 
 
+# <form method="post" action="<%="/songs/" + @song.id.to_s + "/comments/new" %>">
+# 	<textarea class="form-control" name="comment" rows="3" cols="5"></textarea>
+# 	<button class="btn btn-default" type="submit">Post Comment</button>
+# </form>
 
 
-
+# post '/songs/:id/comments/new' do 
+# 	@comment = Comment.new(
+# 		comment: params[:comment]
+# 	)
+# 	@comment.save 
+# 	@song=Song.find(params[:id])
+# 	redirect ('/songs/' + params[:id].to_s)
+# end 

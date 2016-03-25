@@ -1,0 +1,9 @@
+<h1> This is where this list of a user's trips will show up </h1>
+
+<%@user.trips.each do |trip| %>
+	<%=trip.tripname %>
+	<%=trip.destination %>
+	<%=trip.startdate %>
+	<%=trip.enddate %>
+<%end %>
+

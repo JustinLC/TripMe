@@ -1,6 +1,17 @@
+<% if @user && @user.errors.any? %>
+  <div>
+    <h3><strong>There are some issues with your login:</strong></h3><hr/>
+    <ul>
+      <% @user.errors.full_messages.each do |user| %>
+        <div class="alert alert-danger" role="alert"><li><%= user %></li></div>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1>Welcome to The Trip Planner</h1>
 
-<form method="post" action="/dashboard">
+<form method="post" action="/login">
 	<label>Email: <input type="text" name="email"></label>
 	</br>
 	</br>

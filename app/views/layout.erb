@@ -31,8 +31,12 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <% if current_user%>
-            <li><a href="/">Logout</a></li>
+          <% if current_user == nil %>
+            <a class="btn" href='/login'>Login</a>
+          <%else%>
+            <form class="navbar-form navbar-right" method='post' action='/logout'>
+             <button type="submit" class="navbar-brand">Logout</button>
+            </form>
           <% end %>
         </ul>
       </div>
