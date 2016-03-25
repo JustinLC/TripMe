@@ -24,16 +24,16 @@ post '/' do
 end
 
 get '/login' do 
-    erb :'splash'
+  erb :'splash'
 end
 
 post '/login' do 
   @user=User.find_by(email: params[:email])
   if @user && @user.password == params[:password]
-      session[:user_id] = @user.id 
-      redirect '/dashboard'
+    session[:user_id] = @user.id 
+    redirect '/dashboard'
   else 
-      erb :'splash'
+    erb :'splash'
   end 
 end
 
