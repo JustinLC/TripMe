@@ -99,7 +99,7 @@ end
 
 get '/mytrips/:id' do 
 	@trip = Trip.find(params[:id])
-	erb :'trips/mytrips'
+	erb :'trips/eachtrip'
 end 
 
 get '/alltrips' do 
