@@ -1,24 +1,22 @@
 <h1> All trips should show here </h1>
 
- 
+
 
 <%@trips.each do |trip| %>
-	<a href="/mytrips/<%=trip.id%>"<label>Trip Name:<%=trip.tripname %></label>
-	<br>
-<%end %>
-
-<div class="row">
-	<h3><a href="/create_trip/<%=trip.id %>"></a></h3>
-			<li>Name:<%=trip.tripname %></li>
-			</br>
-			<form action='<%= "/alltrips/#{trip.id}/vote"%>' method="post">
-		 		<div>
-	    	<button type="submit" class="btn">Vote</button>
- 			 	</div>
-			</form>
-			<p>
-			  Votes: <%= trip.votes %>
-			</p>
-			</br>
-	</div>
-<%end%> 
+    <a href="/mytrips/<%=trip.id%>"<label>Trip Name:<%=trip.tripname %></label>
+    <br>
+    <div class="row">
+    <h3><a href="/create_trip/<%=trip.id %>"></a></h3>
+            <li>Name:<%=trip.tripname %></li>
+            </br>
+            <form action='<%= "/alltrips/#{trip.id}/vote"%>' method="post">
+                 <div>
+            <button type="submit" class="btn">Vote</button>
+                 </div>
+            </form>
+            <p>
+              Votes: <%= trip.votes %>
+            </p>
+            </br>
+    </div>
+<%end%>

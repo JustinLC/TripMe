@@ -85,7 +85,20 @@ end
 get '/mytrips/:id' do 
 	@user = current_user
 	@trip = @user.trips.find(params[:id])
+	@comments = Comment.all 
 	erb :'trips/eachtrip'
+end 
+
+post '/mytrips/:id/comments/new' do 
+	@comment = Comment.new(
+		url: params[:url],
+		comment: params[:comment]
+	)
+	p @comment
+	@comment.save!
+	@user = current_user
+	@trip = @user.trips.find(params[:id])
+	redirect ('/mytrips/' + params[:id].to_s)
 end 
 
 get '/alltrips/:id' do 
@@ -94,27 +107,13 @@ get '/alltrips/:id' do
 	erb :'/trips/singletrip'
 end 
 
-get 'alltrips/id/:id' do 
-	#specific trip 
-end 
-
 post '/alltrips/:id/vote' do
   @trip = Trip.find params[:id]
   @trip.up_vote
   redirect "/alltrips"
 end
 
-# <form method="post" action="<%="/songs/" + @song.id.to_s + "/comments/new" %>">
-# 	<textarea class="form-control" name="comment" rows="3" cols="5"></textarea>
-# 	<button class="btn btn-default" type="submit">Post Comment</button>
-# </form>
 
 
-# post '/songs/:id/comments/new' do 
-# 	@comment = Comment.new(
-# 		comment: params[:comment]
-# 	)
-# 	@comment.save 
-# 	@song=Song.find(params[:id])
-# 	redirect ('/songs/' + params[:id].to_s)
-# end 
+
+
