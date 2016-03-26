@@ -19,6 +19,12 @@
   <title></title>
 </head>
 <body>
+  <!-- <video id="bgVideo" controls preload="true" autoplay loop muted>
+      <source src="https://www.youtube.com/watch?v=qREKP9oijWI" type="video/mp4" > 
+      <source src="https://www.youtube.com/watch?v=qREKP9oijWI" type="video/ogv" >
+      <source src="https://www.youtube.com/watch?v=qREKP9oijWI" type="video/webm" > 
+  </video> -->
+   
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -33,19 +39,17 @@
           <a class="navbar-brand" href="/create_trip/user"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> CreateTrip</a>
           <a class="navbar-brand" href="/mytrips"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> MyTrips</a>
       </div>
+
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-         <% if current_user %>
+          <% if current_user %>
           <li><a href="/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>
           <% end %>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="container">
   <%= yield %>
-  </div>
-
 </body>
 </html>
 

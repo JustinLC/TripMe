@@ -12,7 +12,7 @@ h4 {
 
 li {
   display: inline;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .jumbotron {
@@ -44,15 +44,6 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
-img {
-  max-width: 100%;
-  width: auto   9;
-  height: 100%;
-  vertical-align: middle;
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-}
-
 .carousel img {
   min-width: 100%;
   max-height: 400px;
@@ -61,4 +52,12 @@ img {
 
 .thumbnail img{
 	max-height: 210px;
+}
+
+.glyphicon-off {
+  font-size: 20px;
+}
+
+.glyphicon-plane {
+  font-size: 20px;
 }
