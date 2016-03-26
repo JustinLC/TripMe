@@ -104,6 +104,13 @@ post '/alltrips/:id/vote' do
   redirect "/alltrips"
 end
 
+ get '/alltrips/:id/delete' do
+  @trip = Trip.find(params[:id])
+	@trip.destroy
+  redirect "/alltrips"
+ end
+
+
 # <form method="post" action="<%="/songs/" + @song.id.to_s + "/comments/new" %>">
 # 	<textarea class="form-control" name="comment" rows="3" cols="5"></textarea>
 # 	<button class="btn btn-default" type="submit">Post Comment</button>

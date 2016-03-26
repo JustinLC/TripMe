@@ -2,14 +2,14 @@
 
 <%@user.trips.each do |trip| %>
 	<a href="/mytrips/<%=trip.id%>"<label>Trip Name:<%=trip.tripname %></label>
-	<br>
-	<!-- </br>
-	<label>Trip Destination: <%=trip.destination %></label>
-	</br>
-	<label>Trip Start Date<%=trip.startdate %></label>
-	</br>
-	<label>Trip End Date<%=trip.enddate %></label>
-	</br>
-	</br> -->
+		<br>
+			<form action='<%= "/alltrips/#{trip.id}/vote"%>' method="post">
+		 		<div>
+	    		<button type="submit" class="btn">Vote</button>
+ 			 	</div>
+			</form>
+				<p>
+			  	Votes: <%= trip.votes %>
+				</p>
+		</br>
 <%end %>
-
