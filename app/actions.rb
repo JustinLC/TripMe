@@ -116,7 +116,7 @@ end
  get '/alltrips/:id/delete' do
   @trip = Trip.find(params[:id])
 	@trip.destroy
-  redirect "/alltrips"
+  redirect "/mytrips"
  end
 
 
