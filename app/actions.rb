@@ -94,7 +94,6 @@ post '/mytrips/:id/comments/new' do
 		url: params[:url],
 		comment: params[:comment]
 	)
-	p @comment
 	@comment.save!
 	@user = current_user
 	@trip = @user.trips.find(params[:id])
