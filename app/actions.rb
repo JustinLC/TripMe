@@ -43,12 +43,7 @@ get '/logout' do
 end 
 
 get '/signup' do 
-	@user = User.new(
-		name: params[:name], 
-		email: params[:email],
-		password: params[:password]
-	)
-	@user.save
+	@user = User.new
 	erb :'/user/signup'
 end 
 
@@ -60,7 +55,7 @@ post '/signup' do
 	)
 	
 	if @user.save
-		session[:user_id] = @user.id 
+		session[:user_id] = @user.id
 		redirect '/dashboard' 
 	else 
 		erb :'/user/signup'

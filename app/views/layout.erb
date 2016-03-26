@@ -19,6 +19,13 @@
   <title></title>
 </head>
 <body>
+  <!-- <div class='bg'> -->
+  <!-- <video id="bgVideo" controls preload="true" autoplay loop muted>
+      <source src="https://www.youtube.com/watch?v=qREKP9oijWI" type="video/mp4" > 
+      <source src="https://www.youtube.com/watch?v=qREKP9oijWI" type="video/ogv" >
+      <source src="https://www.youtube.com/watch?v=qREKP9oijWI" type="video/webm" > 
+  </video> -->
+   
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -27,22 +34,25 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
+
         </button>
 
         <a class="navbar-brand" href="/dashboard"><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> TripMe</a>
+
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-         <% if current_user %>
+          <% if current_user %>
           <li><a href="/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>
           <% end %>
         </ul>
       </div>
     </div>
   </nav>
-  <div class="container">
-  <%= yield %>
-  </div>
+<!--   <div class="container"> -->
+      <%= yield %>
+<!--   </div>
+ -->  <!-- </div> -->
 </body>
 </html>
 

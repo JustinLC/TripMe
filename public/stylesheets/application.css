@@ -12,7 +12,7 @@ h4 {
 
 li {
   display: inline;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .jumbotron {
@@ -52,4 +52,18 @@ img {
 
 .thumbnail img{
 	max-height: 210px;
+}
+
+.bg {
+  background: url('https://wallpaperscraft.com/image/city_big-ben_london_clock_tower_england_25574_1920x1080.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.glyphicon-off {
+  font-size: 20px;
+}
+
+.glyphicon-plane {
+  font-size: 20px;
 }

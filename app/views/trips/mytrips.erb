@@ -1,14 +1,15 @@
-<h1> This is where this list of a user's trips will show up </h1>
+<div class="container">
+	<h1> This is where this list of a user's trips will show up </h1>
 
-<%@user.trips.each do |trip| %>
-	<label>Trip Name:<%=trip.tripname %></label>
-	</br>
-	<label>Trip Destination: <%=trip.destination %></label>
-	</br>
-	<label>Trip Start Date<%=trip.startdate %></label>
-	</br>
-	<label>Trip End Date<%=trip.enddate %></label>
-	</br>
-	</br>
-<%end %>
-
+	<%@user.trips.each do |trip| %>
+		<label>Trip Name:<%=trip.tripname %></label>
+		</br>
+		<label>Trip Destination: <%=trip.destination %></label>
+		</br>
+		<label>Trip Start Date<%=trip.startdate %></label>
+		</br>
+		<label>Trip End Date<%=trip.enddate %></label>
+		</br>
+		</br>
+	<% end %>
+</div>

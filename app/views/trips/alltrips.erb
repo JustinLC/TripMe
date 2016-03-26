@@ -1,16 +1,18 @@
-<h1> All trips should show here </h1>
+<div class="container">
+	<h1> All trips should show here </h1>
 
-<% @trips.each do |trip| %>
+	<% @trips.each do |trip| %>
 
-<div class="row">
-	<h3><a href="/create_trip/<%=trip.id %>"></a></h3>
-			<li>Name:<%=trip.tripname %></li>
-			</br>
-			<li>Destination:<%=trip.destination %></li>
-			</br> 
-			<li>Start Date:<%=trip.startdate %></li>
-			</br>
-			<li>End Date:<%=trip.enddate %></li>
-			</br>
-	</div>
-<%end%> 
+	<div class="row">
+		<h3><a href="/create_trip/<%=trip.id %>"></a></h3>
+				<li>Name:<%=trip.tripname %></li>
+				</br>
+				<li>Destination:<%=trip.destination %></li>
+				</br> 
+				<li>Start Date:<%=trip.startdate %></li>
+				</br>
+				<li>End Date:<%=trip.enddate %></li>
+				</br>
+		</div>
+	<%end%>
+</div>
