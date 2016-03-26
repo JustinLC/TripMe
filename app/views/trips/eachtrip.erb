@@ -1,29 +1,35 @@
 
+	<div class="list-group">
+	  <a "#" class="list-group-item active">
+	    <h3>Trip Name:  <%=@trip.tripname %> <span class="label label-primary">&nbsp&nbsp&nbsp&nbsp&nbsp Votes &nbsp <%= @trip.votes %> </span></h3>
+	  </a>
+	  <a "#" class="list-group-item">
+	  	Trip Destination:  <%=@trip.destination %> </a>
+	  <a "#" class="list-group-item">
+	  	Trip Start Date:  <%=@trip.startdate %> 
+	  </a>
+	    <a "#" class="list-group-item">
+	 		Trip End Date:   <%=@trip.enddate %>
+	 	</a>
+	  <a class="list-group-item">
+	  	<% @comments.each do |comment| %>
+				<ul style=list-style: none>
+					Comments: 
+				 <td><%=comment.comment %></td>
+				</ul> 
+			<% end %>
+	  </a>
+		<a class="list-group-item">
+			<form method="post" action="<%="/mytrips/" + @trip.id.to_s + "/comments/new" %>">
+				<textarea class="form-control" name="url" rows="3" cols="5">URL:</textarea>
+				<textarea class="form-control" name="comment" rows="3" cols="5">I want to See</textarea>
+				<button class="btn btn-default" type="submit">Post Comment</button>
+			</form>
+			<a href="#" class="list-group-item">
+		 		<form action='<%= "/alltrips/#{@trip.id}/delete"%>' method="get">
+					<div align="right"><button type="submit" class="btn">Delete</button></div>
+				</form>
+			</a>
+		<hr/>
+	</div>
 
-	<label>Trip Name:<%=@trip.tripname %></label>
-	</br>
-	<label>Trip Destination: <%=@trip.destination %></label>
-	</br>
-	<label>Trip Start Date<%=@trip.startdate %></label>
-	</br>
-	<label>Trip End Date<%=@trip.enddate %></label>
-	</br>
-	</br>
-
-<h2><%= @user.name %>  Wants You to Check Out:</h2>
-<% @comments.each do |comment| %>
-	<ul style=list-style: none>
-		<td><%=comment.url %></td>
-		<td><%=comment.comment %></td>
-<!-- 		<td><%=comment.user%></td> -->
-	</ul> 
-<% end %> 
-
-<form method="post" action="<%="/mytrips/" + @trip.id.to_s + "/comments/new" %>">
-	<h1>URL<textarea class="form-control" type="url" name="url" rows="3" cols="5"></textarea></h1>
-	<h1>I Want to See<textarea class="form-control" name="comment" rows="3" cols="5"></textarea></h1>
-	<button class="btn btn-default" type="submit">Post Comment</button>
-</form>
-
-
-   
