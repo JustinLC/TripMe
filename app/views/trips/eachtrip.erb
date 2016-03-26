@@ -9,4 +9,16 @@
 	</br>
 	</br>
 
-<!--  -->
+
+<% @comments.each do |comment| %>
+	<ul style=list-style: none>
+		<td><%=comment.url %></td>
+		<td><%=comment.comment %></td>
+	</ul> 
+<% end %> 
+
+<form method="post" action="<%="/mytrips/" + @trip.id.to_s + "/comments/new" %>">
+	<textarea class="form-control" name="url" rows="3" cols="5">URL:</textarea>
+	<textarea class="form-control" name="comment" rows="3" cols="5">I want to See</textarea>
+	<button class="btn btn-default" type="submit">Post Comment</button>
+</form>
