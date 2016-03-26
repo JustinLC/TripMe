@@ -1,4 +1,6 @@
-<h1> This is where this list of a user's trips will show up </h1>
+<div class="jumbotron" style="background-image: url(https://drscdn.500px.org/photo/18906645/m%3D900/149f8d5a47315b609e18fac816e4ed6a); background-size: scale ;">
+<h1>TripMe all of the trips in the Universe</h1>
+</div>
 
 <%@user.trips.each do |trip| %>
 <form action='<%= "/alltrips/#{trip.id}/vote"%>' method="post">
@@ -14,7 +16,10 @@
 				<TR>
 		 		 		<td><form action='<%= "/alltrips/#{trip.id}/delete"%>' method="get">
 						<div align="right"><button type="submit" class="btn">Delete</button></div>
-					</form></td>
+					</form>
+					<td><form action='<%= "/mytrips/#{trip.id}/vote"%>' method="post">
+		 		 		<div align="right"><button type="submit" class="btn">Vote</button></div></form></td> 
+		 		 		</td>
 				</TR>
 			</TABLE></a>
 		<a href="/create_trip/<%=trip.id %>"></a></h3>

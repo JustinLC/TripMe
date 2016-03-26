@@ -1,5 +1,6 @@
-
-<h1> All trips</h1>
+<div class="jumbotron" style="background-image: url(https://drscdn.500px.org/photo/1579352/m%3D900/31357099baa3395400a6360c36b4f43d); background-size: 100% 100%;">
+<h1>TripMe All Trips</h1>
+</div>
 
 <%@trips.each do |trip| %>
 
@@ -14,7 +15,6 @@
 				<TR>
 					<td><form action='<%= "/alltrips/#{trip.id}/vote"%>' method="post">
 		 		 		<div align="right"><button type="submit" class="btn">Vote</button></div></form></td> 
-		 		 		
 				</TR>
 			</TABLE></a>
 		<a href="/create_trip/<%=trip.id %>"></a></h3>

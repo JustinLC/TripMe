@@ -18,7 +18,7 @@ li {
 .jumbotron {
   text-align: center;
   position: relative;
-  background-image: url("../images/boxhead.jpg");
+  background-image: url("../images/boxhead.jpg") center center;
   background-size: cover;
   color: white;
 }
@@ -39,6 +39,15 @@ img {
   max-width: 100%;
   width: auto   9;
   height: auto;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+img {
+  max-width: 100%;
+  width: auto   9;
+  height: 100%;
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
