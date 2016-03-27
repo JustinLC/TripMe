@@ -101,8 +101,7 @@ post '/mytrips/:id/comments/new' do
 end 
 
 get '/alltrips/:id' do 
-	@user = current_user
-	@trip = @user.trips.find(params[:id])
+	@trip = Trip.find(params[:id])
 	erb :'/trips/singletrip'
 end 
 
@@ -117,3 +116,24 @@ end
 	@trip.destroy
   redirect "/mytrips"
  end
+
+post '/alltrips/:id/add_user' do 
+ 		@user = User.find_by(email: params[:email])
+ 		@trip = Trip.find_by(id: params[:id])
+ 	if @user && @trip  
+ 		@user.trips.append(@trip)
+ 		@user.save
+ 	end
+ 	redirect '/mytrips/' + params[:id].to_s
+end 
+
+# post '/mytrips/:id/comments/reply' do 
+# 	@comment = Comment.new(	
+# 	url: params[:url],
+# 	comment: params[:comment],
+# 	parent_comment_id: [:parent_comment_id]
+# 	)	
+# 	@comment.save!
+
+# 	redirect ('/mytrips/' + params[:id].to_s)
+# end 

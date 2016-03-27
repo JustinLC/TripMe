@@ -53,3 +53,7 @@ img {
 .thumbnail img{
 	max-height: 210px;
 }
+
+#reply-form {
+  display: none;
+}

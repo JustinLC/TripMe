@@ -7,11 +7,14 @@
   <a href="/mytrips/<%=trip.id%>" class="list-group-item active">
     <h3>Trip Name:<%=trip.tripname %> <span class="label label-primary">&nbsp&nbsp&nbsp&nbsp&nbsp Votes &nbsp <%= trip.votes %> </span></h3>
   </a>
-  <a href="/mytrips/<%=trip.id%>" class="list-group-item">Trip Destination:<%=trip.destination %> </a>
+  <a href="/mytrips/<%=trip.id%>" class="list-group-item"><%=current_user.name %> goes to: <%=trip.destination %> </a>
     <a class="list-group-item">Comments::::</a>
     <a href="#" class="list-group-item">
     	<TABLE BORDER="0">
 				<TR>
+						<td><form action="<%="/alltrips/#{trip.id}/add_user"%>" method="post">
+						<input type="text" name="email">
+						<div align="right"><button type="submit" class="btn">Add Friends</button>&nbsp&nbsp</div>
 		 		 		<td><form action='<%= "/alltrips/#{trip.id}/delete"%>' method="get">
 						<div align="right"><button type="submit" class="btn">Delete</button></div>
 					</form></td>

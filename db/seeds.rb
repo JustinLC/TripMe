@@ -2,17 +2,17 @@ require 'faker'
 
 # Create users
 user = User.create!(
-  name: 'jesse',
+  name: 'Jesse',
   email: 'jesse@example.com',
   password: 'jesse'
 )
 user = User.create!(
-  name: 'justin',
+  name: 'Justin',
   email: 'justin@example.com',
   password: 'justin'
 )
 user = User.create!(
-  name: 'german',
+  name: 'German',
   email: 'german@example.com',
   password: 'german'
 )
