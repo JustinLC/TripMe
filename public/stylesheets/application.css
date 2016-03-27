@@ -71,6 +71,9 @@ img {
   padding-bottom: 110px;
 }
 
+#reply-form {
+  display: none;
+}
 /*video#bgvid{
   min-width: 100%;
   min-height: 100%;
