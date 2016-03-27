@@ -3,23 +3,23 @@
 </div>
 
 <div class="container">
-	<%@trips.each do |trip| %>
+<%@trips.each do |trip| %>
 
-	<div class="list-group">
-	  <a href="#" class="list-group-item active">
-	    <h3>Trip Name:<%=trip.tripname %> <span class="label label-primary">&nbsp&nbsp&nbsp&nbsp&nbsp <%= trip.votes %> </span></h3>
-	  </a>
-	  <a href="/mytrips/<%=trip.id%>" class="list-group-item">Trip Destination:<%=trip.destination %> </a>
-	    <a href="#" class="list-group-item">Comments</a>
-	    <a href="#" class="list-group-item">
-	    	<TABLE BORDER="0">
-					<TR>
-						<td><form action='<%= "/alltrips/#{trip.id}/vote"%>' method="post">
-			 		 		<div align="right"><button type="submit" class="btn">Vote</button></div></form></td> 
-					</TR>
-				</TABLE></a>
-			<a href="/create_trip/<%=trip.id %>"></a></h3>
-				<hr/>
-		</div>
-	<%end%>
-</div>
+<div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h3>Trip Name:<%=trip.tripname %> <span class="label label-primary">&nbsp&nbsp&nbsp&nbsp&nbsp <%= trip.votes %> </span></h3>
+  </a>
+  <a href="/alltrips/<%=trip.id%>" class="list-group-item">Trip Destination:<%=trip.destination %> </a>
+    <a href="#" class="list-group-item">
+    	<TABLE BORDER="0">
+				<TR>
+					<td><form action='<%= "/alltrips/#{trip.id}/vote"%>' method="post">
+		 		 		<div align="right"><button type="submit" class="btn">Vote</button></div></form></td> 
+		 		 		
+				</TR>
+			</TABLE></a>
+		<a href="/create_trip/<%=trip.id %>"></a></h3>
+			<hr/>
+	</div>
+<%end%> 
+>>>>>>> jesse
