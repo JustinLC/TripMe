@@ -118,8 +118,8 @@ post '/mytrips/:id/vote' do
   redirect "/mytrips"
 end
 
- get '/alltrips/:id/delete' do
+get '/alltrips/:id/delete' do
   @trip = Trip.find(params[:id])
 	@trip.destroy
   redirect "/mytrips"
- end
+end
