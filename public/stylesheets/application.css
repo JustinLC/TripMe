@@ -53,7 +53,7 @@ img {
 
 .thumbnail img{
 	max-height: 210px;
-  border-radius: 50px;
+  /*border-radius: 50px;*/
 }
 
 .glyphicon-off {
