@@ -1,41 +1,44 @@
-<div class="jumbotron" style="background-image: url(https://drscdn.500px.org/photo/18906645/m%3D900/149f8d5a47315b609e18fac816e4ed6a); background-size: scale ;">
-<h1>TripMe all of My trips</h1>
+<div class="jumbotron" style="background-image: url(http://orig06.deviantart.net/5713/f/2008/234/5/5/panorama_of_sydney_skyline_iii_by_iamsorry87.jpg); background-size: 100%;">
+<h1>My Trips</h1>
 </div>
 
-	<div class="list-group">
-	  <a "#" class="list-group-item active">
-	    <h3>Trip Name:  <%=@trip.tripname %> <span class="label label-primary">&nbsp&nbsp&nbsp&nbsp&nbsp Votes &nbsp <%= @trip.votes %> </span></h3>
-	  </a>
-	  <a "#" class="list-group-item">
-	  	Trip Destination:  <%=@trip.destination %> </a>
-	  <a "#" class="list-group-item">
-	  	Trip Start Date:  <%=@trip.startdate %> 
-	  </a>
-	    <a "#" class="list-group-item">
-	 		Trip End Date:   <%=@trip.enddate %>
-	 	</a>
-	  <a class="list-group-item">
-	  	<% @comments.each do |comment| %>
-				<ul style=list-style: none>
-					<%=current_user.name%> says:  
-				 <td><%=comment.comment %></td>
-				</ul> 
-			<% end %>
-	  </a>
-		<a class="list-group-item">
-			<form method="post" action="<%="/mytrips/" + @trip.id.to_s + "/comments/new" %>">
-				<textarea class="form-control" name="comment" rows="3" cols="5">I want to See</textarea>
-				<textarea class="form-control" name="url" rows="3" cols="5">URL:</textarea>
-				<button class="btn btn-default" type="submit">Post Comment</button>
-			</form>
-			<a href="#" class="list-group-item">
-		 		<form action='<%= "/alltrips/#{@trip.id}/delete"%>' method="get">
-					<div align="right"><button type="submit" class="btn">Delete</button></div>
-				</form>
-			</a>
-		<hr/>
+<div class="list-group">
+  <div class="list-group-item active">
+    <h3><%= @trip.tripname %></h3>
+    <hr/>
+    <h4>Vote Count: <%= @trip.votes %></h4>
+  </div>
+  <div class="list-group-item">
+  	Trip Destination:  <%=@trip.destination %>
+  </div>
+  <div class="list-group-item">
+  	Trip Start Date:  <%=@trip.startdate %> 
+  </div>
+  <div class="list-group-item">
+ 		Trip End Date:   <%=@trip.enddate %>
+ 	</div>
+  <div class="list-group-item">
+  	<% @comments.each do |comment| %>
+			<ul style=list-style: none>
+				<%=current_user.name%> says:  
+			 <td><%=comment.comment %></td>
+			</ul> 
+		<% end %>
+  </div>
+	<div class="list-group-item">
+		<form method="post" action="<%="/mytrips/" + @trip.id.to_s + "/comments/new" %>">
+			<textarea class="form-control" name="comment" rows="3" cols="5">I want to visit...</textarea>
+			<br/>
+			<button class="btn btn-primary" type="submit">Post Comment</button>
+		</form>
+ 		<form action='<%= "/alltrips/#{@trip.id}/delete"%>' method="get">
+			<div align="right">
+				<button type="submit" class="btn btn-danger">Delete Trip</button>
+			</div>
+		</form>
 	</div>
-	</div>
+	<hr/>
+</div>
 
 <!-- 	<button class="btn btn-default reply-btn" type="submit">Reply</button> -->
 
@@ -44,9 +47,4 @@
 	<button class="btn btn-default" onClick="onClickClose" type="submit">Submit</button>
 	</form>
 
-// <script>
-// $(".reply-btn").on("click", function() {
-//     $("#reply-form").css("display", "block");
-// });
-// </script>
 

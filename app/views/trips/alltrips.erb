@@ -1,4 +1,4 @@
-<div class="jumbotron" style="background-image: url(http://www.searchingtoronto.com/pictures/plog-content/images/toronto-images/toronto-skyline/torontoskyline-panorama.jpg); background-size: 100% 100%;">
+<div class="jumbotron" style="background-image: url(http://www.letsgodigital.org/images/producten/3087/pictures/sony-panorama-photo.jpg); background-size: 100% 100%;">
 <h1>All Trips</h1>
 </div>
 
@@ -7,16 +7,16 @@
 
 	<div class="list-group">
 	  <a href="#" class="list-group-item active">
-	    <h3>Trip Name:<%=trip.tripname %> <span class="label label-primary">&nbsp&nbsp&nbsp&nbsp&nbsp <%= trip.votes %> </span></h3>
+	  	<div class="text-left">
+	    	Trip Name: <%= trip.tripname %> 
+	    	<div class="text-right">Vote Count: <%= trip.votes %>
+	    	</div>
+	    </div>
 	  </a>
-	  <a href="/alltrips/<%=trip.id%>" class="list-group-item">Trip Destination:<%=trip.destination %> </a>
+	  <a href="/alltrips/<%=trip.id%>" class="list-group-item"><h4>Trip Destination: <%= trip.destination %> </h4></a>
 	    <a href="#" class="list-group-item">
-	    	<table border="0">
-					<tr>
-						<td><form action='<%= "/alltrips/#{trip.id}/vote"%>' method="post">
-			 		 		<div align="right"><button type="submit" class="btn">Vote</button></div></form></td>
-					</tr>
-				</table></a>
+	    	<form action='<%= "/alltrips/#{trip.id}/vote"%>' method="post">
+			 		<button type="submit" class="btn btn-primary">Vote</button></form></a>
 			<a href="/create_trip/<%=trip.id %>"></a></h3>
 				<hr/>
 		</div>

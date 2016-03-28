@@ -1,10 +1,39 @@
+<div class="jumbotron" style="background-image: url(http://orig06.deviantart.net/5713/f/2008/234/5/5/panorama_of_sydney_skyline_iii_by_iamsorry87.jpg); background-size: 100%;">
+<h1>My Trips</h1>
+</div>
 
-	<label>Trip Name:<%=@trip.tripname %></label>
-	</br>
-	<label>Trip Destination: <%=@trip.destination %></label>
-	</br>
-	<label>Trip Start Date<%=@trip.startdate %></label>
-	</br>
-	<label>Trip End Date<%=@trip.enddate %></label>
-	</br>
-	</br>
+<div class="container">
+	<div class="panel panel-primary">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">Trip Name: <%=@trip.tripname %></div>
+	  <div class="panel-body">
+	    <h3>Trip Information</h3>
+	  </div>
+	  <!-- Table -->
+	  <table class="table" border="0">
+	    <div class="row">
+	    	<td>
+	 				<div class="col-md-6">
+	 					Trip Destinations: <br/><%=@trip.destination %>
+	 				</div>
+	      </td>
+	      <td>
+					<div class="col-md-6">
+	      	Trip Start Date: <br/><%=@trip.startdate %>
+	      	</div>
+	      </td>
+	      <td>
+		      <div class="col-md-6">
+		      	Trip End Date: <br/><%=@trip.enddate %>
+		      </div>
+	      </td>
+	    </div>
+	  </table>
+	</div>
+	<div class="text-right">
+		<a href="/alltrips">
+		<button class="btn btn-primary" type="get"> Back to All Trips
+		</button>
+		</a>
+	</div>
+</div>

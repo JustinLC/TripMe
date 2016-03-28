@@ -53,6 +53,7 @@ img {
 
 .thumbnail img{
 	max-height: 210px;
+  border-radius: 50px;
 }
 
 .glyphicon-off {
@@ -74,6 +75,19 @@ img {
 #reply-form {
   display: none;
 }
+
+.text-left {
+  font-size: 20px;
+}
+
+.panel-heading {
+  font-size: 18px;
+}
+
+.col-md-6 {
+  font-size: 15px;
+}
+
 /*video#bgvid{
   min-width: 100%;
   min-height: 100%;
