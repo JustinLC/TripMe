@@ -1,7 +1,5 @@
-Sinatra
+TripMe
 =============
-
-Brought to you by Lighthouse Labs
 
 ## Getting Started
 
